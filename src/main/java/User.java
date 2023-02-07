@@ -17,6 +17,10 @@ public class User {
     public void 예매(Movie movie, int 예약인원){
         Ticket ticket = movie.예매(예약인원);
         티켓 = ticket;
+
+        if(잔액 - ticket.get가격() < 0){
+            throw new PaymentException("잔액이 부족합니다.");
+        }
         잔액 -= ticket.get가격();
     }
 
