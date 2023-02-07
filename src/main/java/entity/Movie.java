@@ -1,3 +1,7 @@
+package entity;
+
+import exception.SoldOutException;
+
 import java.time.LocalDateTime;
 
 public class Movie {
@@ -7,7 +11,7 @@ public class Movie {
     private int 잔여석;
     private int 가격;
 
-    public Ticket 예매(int 예약인원) throws SoldOutException{
+    public Ticket 예매(int 예약인원) throws SoldOutException {
         if(잔여석- 예약인원 < 0) throw new SoldOutException("잔여석이 부족합니다.");
         잔여석-= 예약인원;
 

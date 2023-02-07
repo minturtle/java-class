@@ -1,3 +1,7 @@
+package entity;
+
+import exception.PaymentException;
+
 public class User {
     private String 이름;
     private String 전화번호;
