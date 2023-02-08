@@ -37,4 +37,14 @@ public class Ticket {
     public void set가격(int 가격) {
         this.가격 = 가격;
     }
+
+    @Override
+    public String toString() {
+        return "Ticket{" +
+                "이름='" + 이름 + '\'' +
+                ", 상영시간=" + 상영시간 +
+                ", 인원수=" + 인원수 +
+                '}';
+    }
 }
+

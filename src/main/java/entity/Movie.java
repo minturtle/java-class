@@ -10,17 +10,21 @@ public class Movie {
     private LocalDateTime 상영시간;
     private int 잔여석;
     private int 가격;
+    private DiscountPolicy 할인정책;
+
 
     public Ticket 예매(int 예약인원) throws SoldOutException {
         if(잔여석- 예약인원 < 0) throw new SoldOutException("잔여석이 부족합니다.");
         잔여석-= 예약인원;
+
+        int 결제금액 = 할인정책.discount(this.가격);
 
         Ticket ticket = new Ticket();
 
         ticket.set인원수(예약인원);
         ticket.set이름(this.이름);
         ticket.set상영시간(this.상영시간);
-        ticket.set가격(this.가격 * 예약인원);
+        ticket.set가격(결제금액 * 예약인원);
         System.out.println("예매가 완료되었습니다.");
         return ticket;
     }
@@ -57,5 +61,14 @@ public class Movie {
 
     public void set가격(int 가격) {
         this.가격 = 가격;
+    }
+
+
+    public DiscountPolicy get할인정책() {
+        return 할인정책;
+    }
+
+    public void set할인정책(DiscountPolicy 할인정책) {
+        this.할인정책 = 할인정책;
     }
 }

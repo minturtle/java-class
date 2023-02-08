@@ -1,4 +1,6 @@
+import entity.FixDiscountPolicy;
 import entity.Movie;
+import entity.RateDiscountPolicy;
 import entity.User;
 import exception.PaymentException;
 
@@ -12,7 +14,7 @@ public class Main {
             movie.set가격(15000);
             movie.set잔여석(50);
             movie.set상영시간(LocalDateTime.of(2023, 2, 6, 10, 50));
-
+            movie.set할인정책(new FixDiscountPolicy(500));
             User user = new User();
 
             user.set이름("홍길동");
@@ -21,6 +23,13 @@ public class Main {
 
             user.예매(movie, 2);
             user.정보출력();
+
+            movie.set할인정책(new RateDiscountPolicy(0.05));
+
+            user.예매(movie, 2);
+            user.정보출력();
+
+
         }catch(PaymentException e){ e.printStackTrace();}
     }
 }
