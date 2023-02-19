@@ -7,6 +7,17 @@ public class Movie {
     private int 잔여석;
     private int 가격;
 
+
+    public Movie() {
+    }
+
+    public Movie(String 이름, LocalDateTime 상영시간, int 잔여석, int 가격) {
+        this.이름 = 이름;
+        this.상영시간 = 상영시간;
+        this.잔여석 = 잔여석;
+        this.가격 = 가격;
+    }
+
     private MovieCategory movieCategory;
 
     public MovieCategory getMovieCategory() {
