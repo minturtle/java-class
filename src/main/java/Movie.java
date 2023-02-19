@@ -7,6 +7,16 @@ public class Movie {
     private int 잔여석;
     private int 가격;
 
+    private MovieCategory movieCategory;
+
+    public MovieCategory getMovieCategory() {
+        return movieCategory;
+    }
+
+    public void setMovieCategory(MovieCategory movieCategory) {
+        this.movieCategory = movieCategory;
+    }
+
     public Ticket 예매(int 예약인원){
         잔여석-= 예약인원;
 
